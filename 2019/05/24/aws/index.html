@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/4.1.png">
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/5.1.png">
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/6.1.png">
-<meta property="og:updated_time" content="2019-05-27T09:12:28.743Z">
+<meta property="og:updated_time" content="2019-05-27T11:30:19.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Amazon Web Services - An Introduction">
 <meta name="twitter:description" content="Sections    Introduction to AWS AWS Management Console: AWS Websites Getting started with AWS   Introduction to Storage Services Serverless Computing AWS Storage Services Storage Example Scenario Hybr">
@@ -136,6 +136,7 @@
 </li>
 <li><a href="#introduction-to-application-services">Introduction to Application Services</a><ul>
 <li><a href="#process-decoupling-example">Process Decoupling Example</a></li>
+<li><a href="#some-customer-engagement-services">Some Customer Engagement Services</a></li>
 </ul>
 </li>
 </ul>
@@ -399,12 +400,17 @@ The AWS global infrastructure is massive and is divided into geographic rehions 
 <p>Consider we have an application running on an auto scaling group of EC2 instances and it is a process server  as it processing messages as they come in. As the demand increases, auto scaling group launches new instances to cope up with new need, but it takes 5-10 mintes to spin up new instances. So in case of the rapid increase, during this tenure, with SQS we can let the message come in and they can build up until such time that our auto scaling group of EC2 instances get to the queue and empty out.</p>
 <p>There is a possibility that many instances might get unhealthy at a momemt leading to infinite messaging building up. Or may be beacuse of a faulty update the messages count might spike. So for such situations we can setup a CloudWatch Metric and that will alert  us with an SNS email notification that our SQS queue is continuing to grow and we need to invstigate further.</p>
 <p>Here we can use CloudWatch Metric to inform Auto Scaling that queue is big and we need to start new instances as queue is big. We can also use this to notify it to terminate the instances if queue goes down.</p>
+<h2><span id="some-customer-engagement-services">Some Customer Engagement Services</span></h2><ul>
+<li><strong>Amazon Connect</strong> is a self service contact center in the AWS cloud and it is delivered as pay-as-you-go pricing model. It has a drag and drop  graphical user interface which allows us to create process flows that define customer interaction without having any coding ar all.</li>
+<li><strong>Amazon PinPoint</strong> allows us to end emals, SMSs, and mobile push  messages for targetting marketing campaigns as well direct messages for to our individual customers.</li>
+<li>Amaazon <strong>Simple Email Service</strong> (SES) is a cloud based bulk email sending service.</li>
+</ul>
 <p><strong>Work is in Progress. Keep visiting and stay tuned for updates.</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://devopspreneur.github.io/2019/05/24/aws/" data-id="cjw65m2p60000hgsvxi6hgor4" class="article-share-link">Share</a>
+      <a data-url="https://devopspreneur.github.io/2019/05/24/aws/" data-id="cjw6ajs2f0000snsvhgtr9dfn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/">devops</a></li></ul>
