@@ -20,7 +20,8 @@
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/3.1.png">
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/4.1.png">
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/5.1.png">
-<meta property="og:updated_time" content="2019-05-27T03:53:11.338Z">
+<meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/6.1.png">
+<meta property="og:updated_time" content="2019-05-27T09:12:28.743Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Amazon Web Services - An Introduction">
 <meta name="twitter:description" content="Sections    Introduction to AWS AWS Management Console: AWS Websites Getting started with AWS   Introduction to Storage Services Serverless Computing AWS Storage Services Storage Example Scenario Hybr">
@@ -133,7 +134,10 @@
 <li><a href="#a-management-scenario">A Management Scenario</a></li>
 </ul>
 </li>
-<li><a href="#introduction-to-application-services">Introduction to Application Services</a></li>
+<li><a href="#introduction-to-application-services">Introduction to Application Services</a><ul>
+<li><a href="#process-decoupling-example">Process Decoupling Example</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 </div>
@@ -382,12 +386,25 @@ The AWS global infrastructure is massive and is divided into geographic rehions 
 <li>This has created a SNS topic. WE will receive a popup where we will be asked to verify the email We have to confirm the email address to receive the alert.</li>
 <li>Go to Services and then to Simple Notification Services and we can see a topic there which we have created.</li>
 </ul>
-<h1><span id="introduction-to-application-services">Introduction to Application Services</span></h1><p><strong>Work is in Progress. Keep visiting and stay tuned for updates.</strong></p>
+<h1><span id="introduction-to-application-services">Introduction to Application Services</span></h1><ul>
+<li><strong>Step Functions</strong> makes it easy to coordinate the componets of distributed applications amd microservices using a visual workflow.</li>
+<li>Amazon <strong>Simpe WorkFlow Service</strong> (SWF) works in a similar way to step functions in coorfinating multiple components of a bsuiness process. <em>For new applications, it is receommended to use step functions and not SWF Service.</em></li>
+<li><strong>Simpe Notification Service</strong> is a fully flexible fully managed pub/sub messaging service. We can craete topics and users subscribe to that topic. When we publish a message to the topic, the users who have subscribed to that topic will receive that message. It can also be used for push notifications for mobile devices.</li>
+<li>Amazon <strong>Simpe Queuing Service</strong> (SQS) is a fully managed Message Quering Service, which makes it easy to decouple our applications from demand. In simple words it allows messaages to be uidl up in a queue until the processing server  that processes those messages can catch up with the demand.</li>
+</ul>
+<h2><span id="process-decoupling-example">Process Decoupling Example</span></h2><ul>
+<li>If average demand exceeds processing capacity, queue will grow indefinitely</li>
+<li>SQS can provide Cloudwatch metrics that can be used with auto scaling.<br><img src="6.1.png" alt="Process Decoupling Example"></li>
+</ul>
+<p>Consider we have an application running on an auto scaling group of EC2 instances and it is a process server  as it processing messages as they come in. As the demand increases, auto scaling group launches new instances to cope up with new need, but it takes 5-10 mintes to spin up new instances. So in case of the rapid increase, during this tenure, with SQS we can let the message come in and they can build up until such time that our auto scaling group of EC2 instances get to the queue and empty out.</p>
+<p>There is a possibility that many instances might get unhealthy at a momemt leading to infinite messaging building up. Or may be beacuse of a faulty update the messages count might spike. So for such situations we can setup a CloudWatch Metric and that will alert  us with an SNS email notification that our SQS queue is continuing to grow and we need to invstigate further.</p>
+<p>Here we can use CloudWatch Metric to inform Auto Scaling that queue is big and we need to start new instances as queue is big. We can also use this to notify it to terminate the instances if queue goes down.</p>
+<p><strong>Work is in Progress. Keep visiting and stay tuned for updates.</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://devopspreneur.github.io/2019/05/24/aws/" data-id="cjw5umslq0000a7svffs65blu" class="article-share-link">Share</a>
+      <a data-url="https://devopspreneur.github.io/2019/05/24/aws/" data-id="cjw65m2p60000hgsvxi6hgor4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/">devops</a></li></ul>
