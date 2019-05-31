@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/4.1.png">
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/5.1.png">
 <meta property="og:image" content="https://devopspreneur.github.io/2019/05/24/aws/6.1.png">
-<meta property="og:updated_time" content="2019-05-27T15:49:15.474Z">
+<meta property="og:updated_time" content="2019-05-31T02:38:27.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Amazon Web Services - An Introduction">
 <meta name="twitter:description" content="Sections    Introduction to AWS AWS Management Console: AWS Websites Getting started with AWS   Introduction to Storage Services Serverless Computing AWS Storage Services Storage Example Scenario Hybr">
@@ -403,15 +403,26 @@ The AWS global infrastructure is massive and is divided into geographic rehions 
 <p>Here we can use CloudWatch Metric to inform Auto Scaling that queue is big and we need to start new instances as queue is big. We can also use this to notify it to terminate the instances if queue goes down.</p>
 <h2><span id="some-customer-engagement-services">Some Customer Engagement Services</span></h2><ul>
 <li><strong>Amazon Connect</strong> is a self service contact center in the AWS cloud and it is delivered as pay-as-you-go pricing model. It has a drag and drop  graphical user interface which allows us to create process flows that define customer interaction without having any coding ar all.</li>
-<li><strong>Amazon PinPoint</strong> allows us to end emals, SMSs, and mobile push  messages for targetting marketing campaigns as well direct messages for to our individual customers.</li>
+<li><strong>Amazon PinPoint</strong> allows us to send emals, SMSs, and mobile push  messages for targetting marketing campaigns as well direct messages for to our individual customers.</li>
 <li>Amaazon <strong>Simple Email Service</strong> (SES) is a cloud based bulk email sending service.</li>
 </ul>
-<h2><span id="hands-on">Hands on</span></h2><p><strong>Work is in Progress. Keep visiting and stay tuned for updates.</strong></p>
+<h2><span id="hands-on">Hands on</span></h2><ul>
+<li>Go to AWS Management Console and from there go to Services.</li>
+<li>We click on SES in messaging services</li>
+<li>First we will verify a new email address</li>
+<li>We will receive the link on our mail. We can use it going on.</li>
+<li>it will occur as verified on console</li>
+<li>We will send a test email to check that it is working.</li>
+<li>Sincere there is a possibility that we might send spams in bulk, SES allows us to send mails to verified emails. In case we want to change it, we can request a sending limit increase.</li>
+<li>To do so, we will go to Sending Statistics under Email Sending on SES dashboard and click a Request a Sending Limit Increase.</li>
+<li>This will open a form, we will fill it up and sent it to AWS team. Once it is processed, we should be good to access the assets.</li>
+</ul>
+<p><strong>Work is in Progress. Keep visiting and stay tuned for updates.</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://devopspreneur.github.io/2019/05/24/aws/" data-id="cjw6js5cs00019hsvu7ndhcpu" class="article-share-link">Share</a>
+      <a data-url="https://devopspreneur.github.io/2019/05/24/aws/" data-id="cjwbhayjl00003qsvwnlh72su" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/">devops</a></li></ul>
